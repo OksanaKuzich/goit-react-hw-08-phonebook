@@ -12,7 +12,7 @@ export const Layout = () => {
           </li>
 
           <li>
-            <NavLink to="/register">Refister</NavLink>
+            <NavLink to="/register">Register</NavLink>
           </li>
           <li>
             <NavLink to="/login">Log In</NavLink>
