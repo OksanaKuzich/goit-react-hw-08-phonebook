@@ -1,40 +1,23 @@
-import { ContactForm } from './ContactForm/ContactForm';
-import { Filter } from './Filter/Filter';
-import { ContactList } from './ContactList/ContactList';
-import { GlobalStyle } from './Utilit/GlobalStyle';
-import { getContactsArray, getIsLoading, getError } from 'redux/selectors';
-import { useSelector, useDispatch } from 'react-redux';
-import { useEffect } from 'react';
-import { fetchContacts } from 'redux/operations';
+import { Route, Routes } from 'react-router-dom';
+import { Contacts } from 'pages/Contacts';
+import { Register } from 'pages/Register';
+import { Login } from 'pages/Login';
+import { Layout } from './Layout/Layout';
+import { Home } from 'pages/Home';
+import { GlobalStyle } from 'components/Utilit/GlobalStyle';
 
 export const App = () => {
-  const dispatch = useDispatch();
-  const array = useSelector(getContactsArray);
-  const loading = useSelector(getIsLoading);
-  const error = useSelector(getError);
-
-  useEffect(() => {
-    dispatch(fetchContacts());
-  }, [dispatch]);
-
   return (
-    <div className="container">
-      {error && <b>{error}</b>}
-      <h1>Phonebook</h1>
-      <ContactForm />
-      <h2>Contacts</h2>
-      {loading ? (
-        <b>Loading contacts...</b>
-      ) : array.length === 0 ? (
-        <p>Please, enter your first contact</p>
-      ) : (
-        <>
-          <Filter />
-          <ContactList />
-        </>
-      )}
-
+    <>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Home />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/contacts" element={<Contacts />} />
+        </Route>
+      </Routes>
       <GlobalStyle />
-    </div>
+    </>
   );
 };
