@@ -4,9 +4,9 @@ import {
   InputStyles,
   ButtonAdd,
 } from './ContactForm.styled';
-import { getContactsArray } from 'redux/selectors';
+import { getContactsArray } from 'redux/contacts/contactsSelectors';
 import { useDispatch, useSelector } from 'react-redux';
-import { addContact } from 'redux/operations';
+import { addContact } from 'redux/contacts/contactsOperations';
 
 export function ContactForm() {
   const array = useSelector(getContactsArray);
@@ -39,33 +39,31 @@ export function ContactForm() {
 
   return (
     <FormStyles onSubmit={addContactsItem}>
-        <LabelStyles>
-          Name
-          <InputStyles
-            type="text"
-            name="name"
-            pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
-            title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
-            required
-            placeholder="Ivan"
-            onChange={handleInputName}
-          />
-        </LabelStyles>
-        <LabelStyles>
-          Number
-          <InputStyles
-            type="tel"
-            name="number"
-            pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
-            title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
-            required
-            placeholder="111-11-11"
-            onChange={handleInputNumber}
-          />
-        </LabelStyles>
-      <ButtonAdd type="submit">
-        Add contact
-      </ButtonAdd>
+      <LabelStyles>
+        Name
+        <InputStyles
+          type="text"
+          name="name"
+          pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
+          title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
+          required
+          placeholder="Ivan"
+          onChange={handleInputName}
+        />
+      </LabelStyles>
+      <LabelStyles>
+        Number
+        <InputStyles
+          type="tel"
+          name="number"
+          pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
+          title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
+          required
+          placeholder="111-11-11"
+          onChange={handleInputNumber}
+        />
+      </LabelStyles>
+      <ButtonAdd type="submit">Add contact</ButtonAdd>
     </FormStyles>
   );
 }

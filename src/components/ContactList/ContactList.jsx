@@ -1,7 +1,10 @@
 import { ContactListItem } from './ContactListItem';
 import { ListContacts } from './ContactList.styled';
 import { useSelector } from 'react-redux';
-import { getContactsArray, getContactsFilter } from 'redux/selectors';
+import {
+  getContactsArray,
+  getContactsFilter,
+} from 'redux/contacts/contactsSelectors';
 
 export const ContactList = () => {
   const array = useSelector(getContactsArray);

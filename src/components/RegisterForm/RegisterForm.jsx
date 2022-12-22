@@ -8,7 +8,7 @@ export const RegisterForm = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const handleChange = ({ target: name, value }) => {
+  const handleChange = ({ target: { name, value } }) => {
     switch (name) {
       case 'name':
         return setName(value);
