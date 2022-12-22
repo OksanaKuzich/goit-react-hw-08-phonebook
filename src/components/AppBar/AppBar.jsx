@@ -6,7 +6,7 @@ import { LogMenu } from './LogMenu';
 
 export const AppBar = () => {
   const isLoggedIn = useSelector(authSelectors.getIsLoggedIn);
-  console.log(isLoggedIn);
+  // console.log(isLoggedIn);
 
   return (
     <>
@@ -15,7 +15,9 @@ export const AppBar = () => {
           <NavLink to="/">Home</NavLink>
           <NavLink to="/contacts">Contacts</NavLink>
         </nav>
-        {isLoggedIn ? <UserMenu /> : <LogMenu />}
+        {/* {isLoggedIn ? <UserMenu /> : <LogMenu />} */}
+        <LogMenu />
+        <UserMenu/>
       </header>
       <Outlet />
     </>
