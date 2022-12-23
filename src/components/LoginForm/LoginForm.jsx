@@ -34,6 +34,7 @@ export const LoginForm = () => {
           value={email}
           type="email"
           onChange={handleChange}
+          required
         />
       </label>
       <label>
@@ -43,6 +44,7 @@ export const LoginForm = () => {
           value={password}
           type="password"
           onChange={handleChange}
+          required
         />
       </label>
       <button type="submit">Login</button>
