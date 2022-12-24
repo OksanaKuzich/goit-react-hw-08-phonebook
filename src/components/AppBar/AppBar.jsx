@@ -5,7 +5,7 @@ import authSelectors from 'redux/auth/authSelectors';
 import { useSelector } from 'react-redux';
 
 export const AppBar = () => {
-  const isLoggIn = useSelector(authSelectors.getIsLoggedIn);
+  const isLoggedIn = useSelector(authSelectors.getIsLoggedIn);
 
   return (
     <>
@@ -14,7 +14,7 @@ export const AppBar = () => {
           <NavLink to="/">Home</NavLink>
           <NavLink to="/contacts">Contacts</NavLink>
         </nav>
-        {isLoggIn ? <UserMenu /> : <LogMenu />}
+        {isLoggedIn ? <UserMenu /> : <LogMenu />}
       </header>
       <Outlet />
     </>
