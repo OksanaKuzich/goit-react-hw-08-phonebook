@@ -25,7 +25,8 @@ export function ContactForm() {
     e.preventDefault();
     const name = e.target.elements.name.value;
     const phone = e.target.elements.number.value;
-    const item = { name, phone };
+    const contact = { name, number: phone };
+    console.log(contact)
     e.target.reset();
 
     const isDublicate = array.some(
@@ -34,7 +35,7 @@ export function ContactForm() {
 
     isDublicate
       ? alert(`${name} is already in contacts`)
-      : dispatch(addContact(item));
+      : dispatch(addContact(contact));
   };
 
   return (

@@ -6,8 +6,17 @@ import { AppBar } from './AppBar/AppBar';
 import { Home } from 'pages/Home';
 import { GlobalStyle } from 'components/Utilit/GlobalStyle';
 import Box from '@mui/material/Box';
+import { useDispatch } from 'react-redux';
+import { useEffect } from 'react';
+import authOperations from 'redux/auth/authOperations';
 
 export const App = () => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(authOperations.fetchCurrentUser());
+  }, [dispatch]);
+
   return (
     <>
       <Box sx={{ width: '100%' }}>
