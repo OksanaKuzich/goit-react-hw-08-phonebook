@@ -9,6 +9,8 @@ import {
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import { fetchContacts } from 'redux/contacts/contactsOperations';
+import Container from '@mui/material/Container';
+
 
 export const Contacts = () => {
   const dispatch = useDispatch();
@@ -21,14 +23,15 @@ export const Contacts = () => {
   }, [dispatch]);
 
   return (
-    <div className="container">
+    <Container maxWidth="xs">
       {error ? (
         <b>{error}</b>
       ) : (
         <>
-          <h1>Phonebook</h1>
+          <></>
+          <h3>New contact</h3>
           <ContactForm />
-          <h2>Contacts</h2>
+          <h3>All contacts</h3>
           {loading ? (
             <b>Loading contacts...</b>
           ) : array.length === 0 ? (
@@ -41,6 +44,6 @@ export const Contacts = () => {
           )}
         </>
       )}
-    </div>
+    </Container>
   );
 };
