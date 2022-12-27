@@ -3,7 +3,6 @@ import { getContactsFilter } from 'redux/contacts/contactsSelectors';
 import { setFilter } from 'redux/filter/filterSlice';
 import TextField from '@mui/material/TextField';
 
-
 export const Filter = () => {
   const filterName = useSelector(getContactsFilter);
   const dispatch = useDispatch();
@@ -22,6 +21,7 @@ export const Filter = () => {
       placeholder="Name..."
       variant="outlined"
       size="small"
+      fullWidth
     />
   );
 };

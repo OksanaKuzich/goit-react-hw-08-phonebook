@@ -28,18 +28,22 @@ export const Contacts = () => {
         <b>{error}</b>
       ) : (
         <>
-          <Typography align="center" variant="h5" marginBottom={3}>
+          <Typography align="center" variant="h6" marginBottom={3}>
             Add new contact
           </Typography>
           <ContactForm />
-          <Typography align="center" variant="h5" margin={3}>
+          <Typography align="center" variant="h6" margin={3}>
             All your contacts
           </Typography>
 
           {loading ? (
-            <b>Loading contacts...</b>
+            <Typography variant="h7" margin={3}>
+              Loading contacts...
+            </Typography>
           ) : array.length === 0 ? (
-            <p>Please, enter your first contact</p>
+            <Typography variant="h7" margin={3}>
+              Please, enter your first contact
+            </Typography>
           ) : (
             <>
               <Filter />

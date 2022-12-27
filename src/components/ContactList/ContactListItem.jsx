@@ -5,7 +5,7 @@ import TableRow from '@mui/material/TableRow';
 import TableCell from '@mui/material/TableCell';
 import Avatar from 'react-avatar';
 import ClearIcon from '@mui/icons-material/Clear';
-import Chip from '@mui/material/Chip';
+import IconButton from '@mui/material/IconButton';
 
 export const ContactListItem = ({ id, name, number }) => {
   const dispatch = useDispatch();
@@ -21,11 +21,9 @@ export const ContactListItem = ({ id, name, number }) => {
       <TableCell align="center">{name}</TableCell>
       <TableCell align="center">{number}</TableCell>
       <TableCell align="center" dataid={id}>
-        <Chip
-          onClick={() => dispatch(deleteContact(id))}
-          icon={<ClearIcon />}
-          variant="outlined"
-        />
+        <IconButton color="error" onClick={() => dispatch(deleteContact(id))}>
+          <ClearIcon />
+        </IconButton>
       </TableCell>
     </TableRow>
   );
