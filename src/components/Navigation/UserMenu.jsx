@@ -7,6 +7,7 @@ import authOperations from 'redux/auth/authOperations';
 import * as React from 'react';
 import { Link } from 'react-router-dom';
 import LogoutIcon from '@mui/icons-material/Logout';
+import Typography from '@mui/material/Typography';
 
 export const UserMenu = () => {
   const dispatch = useDispatch();
@@ -37,7 +38,9 @@ export const UserMenu = () => {
           />
         </Tabs>
       </Box>
-      <h2>Your phonebook, {name}!</h2>
+      <Typography align="center" variant="h5" margin={3} fontWeight="700">
+        Welcome in your phonebook, {name}!
+      </Typography>
     </>
   );
 };

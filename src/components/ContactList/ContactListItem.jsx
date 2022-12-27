@@ -3,31 +3,30 @@ import { useDispatch } from 'react-redux';
 import { deleteContact } from 'redux/contacts/contactsOperations';
 import TableRow from '@mui/material/TableRow';
 import TableCell from '@mui/material/TableCell';
+import Avatar from 'react-avatar';
+import ClearIcon from '@mui/icons-material/Clear';
+import Chip from '@mui/material/Chip';
 
 export const ContactListItem = ({ id, name, number }) => {
   const dispatch = useDispatch();
 
   return (
-    // <ListContactsItem key={id}>
-    //   {name}: {number}
-    //   <ButtonDelete
-    //     type="button"
-    //     onClick={() => dispatch(deleteContact(id))}
-    //     dataid={id}
-    //   >
-    //     Delete
-    //   </ButtonDelete>
-    // </ListContactsItem>
     <TableRow
       key={id}
       sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
     >
       <TableCell component="th" scope="row" align="center">
-        111
+        <Avatar name={name} size={30} round={true} />
       </TableCell>
       <TableCell align="center">{name}</TableCell>
       <TableCell align="center">{number}</TableCell>
-      <TableCell align="center">delete</TableCell>
+      <TableCell align="center" dataid={id}>
+        <Chip
+          onClick={() => dispatch(deleteContact(id))}
+          icon={<ClearIcon />}
+          variant="outlined"
+        />
+      </TableCell>
     </TableRow>
   );
 };

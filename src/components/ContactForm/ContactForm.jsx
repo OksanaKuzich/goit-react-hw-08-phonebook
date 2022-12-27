@@ -38,7 +38,7 @@ export function ContactForm() {
   return (
     <Container maxWidth="xs">
       <form onSubmit={addContactsItem}>
-        <Stack spacing={2} marginTop={5}>
+        <Stack spacing={2}>
           <TextField
             label="Name"
             type="text"
@@ -52,7 +52,7 @@ export function ContactForm() {
             size="small"
           />
           <TextField
-            label="Number"
+            label="Phone"
             type="tel"
             name="number"
             pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
@@ -64,7 +64,7 @@ export function ContactForm() {
             size="small"
           />
           <Button variant="contained" type="submit">
-            Add contact
+            Add
           </Button>
         </Stack>
       </form>

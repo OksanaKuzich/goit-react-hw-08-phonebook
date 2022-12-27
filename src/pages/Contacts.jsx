@@ -10,7 +10,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import { fetchContacts } from 'redux/contacts/contactsOperations';
 import Container from '@mui/material/Container';
-
+import Typography from '@mui/material/Typography';
 
 export const Contacts = () => {
   const dispatch = useDispatch();
@@ -28,10 +28,14 @@ export const Contacts = () => {
         <b>{error}</b>
       ) : (
         <>
-          <></>
-          <h3>New contact</h3>
+          <Typography align="center" variant="h5" marginBottom={3}>
+            Add new contact
+          </Typography>
           <ContactForm />
-          <h3>All contacts</h3>
+          <Typography align="center" variant="h5" margin={3}>
+            All your contacts
+          </Typography>
+
           {loading ? (
             <b>Loading contacts...</b>
           ) : array.length === 0 ? (
