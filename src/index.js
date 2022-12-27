@@ -6,13 +6,16 @@ import { store, persistor } from './redux/store';
 import { BrowserRouter } from 'react-router-dom';
 import { PersistGate } from 'redux-persist/integration/react';
 import './index.css';
+import { Container } from '@mui/material';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
         <BrowserRouter>
-          <App />
+          <Container maxWidth="sm">
+            <App />
+          </Container>
         </BrowserRouter>
       </PersistGate>
     </Provider>

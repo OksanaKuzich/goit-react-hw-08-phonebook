@@ -3,7 +3,6 @@ import { Contacts } from 'pages/Contacts';
 import { Register } from 'pages/Register';
 import { Login } from 'pages/Login';
 import { AppBar } from './Navigation/Navigation';
-import { Home } from 'pages/Home';
 import { GlobalStyle } from 'components/Utilit/GlobalStyle';
 import Box from '@mui/material/Box';
 import { useDispatch } from 'react-redux';
@@ -24,7 +23,6 @@ export const App = () => {
       <Box sx={{ width: '100%' }}>
         <Routes>
           <Route path="/" element={<AppBar />}>
-            <Route index element={<Home />} />
             <Route
               path="/register"
               element={
