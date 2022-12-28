@@ -12,7 +12,8 @@ import { fetchContacts } from 'redux/contacts/contactsOperations';
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 import Stack from '@mui/material/Stack';
-
+import CircularProgress from '@mui/material/CircularProgress';
+import Box from '@mui/material/Box';
 
 export const Contacts = () => {
   const dispatch = useDispatch();
@@ -39,9 +40,15 @@ export const Contacts = () => {
           </Typography>
 
           {loading ? (
-            <Typography variant="h7" margin={3}>
-              Loading contacts...
-            </Typography>
+            <Box
+              sx={{
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+              }}
+            >
+              <CircularProgress />
+            </Box>
           ) : array.length === 0 ? (
             <Typography variant="h7" margin={3}>
               Please, enter your first contact

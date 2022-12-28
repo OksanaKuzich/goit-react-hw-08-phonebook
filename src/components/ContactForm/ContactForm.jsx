@@ -31,10 +31,13 @@ export function ContactForm() {
       contact => contact.name.toLowerCase() === name.toLowerCase()
     );
 
-    isDublicate
-      ? toast.warn(`${name} is already in contacts!`)
-      : dispatch(addContact(contact));
-    // toast.success('New contact added!')
+    if (isDublicate) {
+      toast.warn(`${name} is already in contacts!`);
+      return;
+    }
+
+    dispatch(addContact(contact));
+    toast.success('New contact added!');
   };
 
   return (
@@ -45,25 +48,31 @@ export function ContactForm() {
             label="Name"
             type="text"
             name="name"
-            pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
-            title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
             required
             placeholder="Ivan"
             onChange={handleInputName}
             variant="outlined"
             size="small"
+            title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
+            inputProps={{
+              pattern:
+                "^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$",
+            }}
           />
           <TextField
             label="Phone"
             type="tel"
             name="number"
-            pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
-            title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
             required
             placeholder="111-11-11"
             onChange={handleInputNumber}
             variant="outlined"
             size="small"
+            title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
+            inputProps={{
+              pattern:
+                '\\+?\\d{1,4}?[-.\\s]?\\(?\\d{1,3}?\\)?[-.\\s]?\\d{1,4}[-.\\s]?\\d{1,4}[-.\\s]?\\d{1,9}',
+            }}
           />
           <Button variant="contained" type="submit">
             Add
