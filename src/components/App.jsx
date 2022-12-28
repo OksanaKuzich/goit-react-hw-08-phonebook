@@ -1,8 +1,9 @@
 import { Route, Routes } from 'react-router-dom';
+import { Navigate } from 'react-router-dom';
 import { Contacts } from 'pages/Contacts';
 import { Register } from 'pages/Register';
 import { Login } from 'pages/Login';
-import { AppBar } from './Navigation/Navigation';
+import { Navigation } from './Navigation/Navigation';
 import { GlobalStyle } from 'components/Utilit/GlobalStyle';
 import Box from '@mui/material/Box';
 import { useDispatch } from 'react-redux';
@@ -22,7 +23,8 @@ export const App = () => {
     <>
       <Box sx={{ width: '100%' }}>
         <Routes>
-          <Route path="/" element={<AppBar />}>
+          <Route path="/" element={<Navigation />}>
+            <Route index element={<Navigate to="/register" />} />
             <Route
               path="/register"
               element={

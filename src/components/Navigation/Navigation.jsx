@@ -5,7 +5,7 @@ import authSelectors from 'redux/auth/authSelectors';
 import * as React from 'react';
 import { useSelector } from 'react-redux';
 
-export const AppBar = () => {
+export const Navigation = () => {
   const isLoggedIn = useSelector(authSelectors.getIsLoggedIn);
 
   return (

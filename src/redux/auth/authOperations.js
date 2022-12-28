@@ -22,13 +22,14 @@ const register = createAsyncThunk('auth/register', async credentials => {
   }
 });
 
-const logIn = createAsyncThunk('auth/login', async credentials => {
+const logIn = createAsyncThunk('auth/login', async (credentials, thunkAPI) => {
   try {
     const response = await axios.post('/users/login', credentials);
     token.set(response.data.token);
     return response.data;
   } catch (e) {
-    return e.message;
+    alert('Invalid login or password! Please try again!');
+    return thunkAPI.rejectWithValue(e.message);
   }
 });
 
