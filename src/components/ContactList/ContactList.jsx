@@ -9,6 +9,7 @@ import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
+import Typography from '@mui/material/Typography';
 
 export const ContactList = () => {
   const array = useSelector(getContactsArray);
@@ -39,7 +40,9 @@ export const ContactList = () => {
           </TableBody>
         </Table>
       ) : (
-        <div>Not found...</div>
+        <Typography component="h3" marginTop={5}>
+          Not found...
+        </Typography>
       )}
     </>
   );

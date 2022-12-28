@@ -19,12 +19,4 @@ ul {
     list-style: none;
     padding-left: 0;
 }
-
-.container {
-    width: 300px;
-    margin-left: auto;
-    margin-right: auto;
-    padding-top: 20px;
-    padding-bottom: 20px;
-}
 `;

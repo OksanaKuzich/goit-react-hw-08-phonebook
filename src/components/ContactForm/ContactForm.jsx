@@ -9,7 +9,7 @@ import Container from '@mui/material/Container';
 export function ContactForm() {
   const array = useSelector(getContactsArray);
 
-  const handleInputName = e => {
+  const handleInputName = e => {    
     return e.currentTarget.value;
   };
 
@@ -63,9 +63,9 @@ export function ContactForm() {
             variant="outlined"
             size="small"
           />
-          <Button variant="contained" type="submit">
-            Add
-          </Button>
+            <Button variant="contained" type="submit">
+              Add
+            </Button>
         </Stack>
       </form>
     </Container>

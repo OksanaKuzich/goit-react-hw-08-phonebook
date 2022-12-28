@@ -11,6 +11,8 @@ import { useEffect } from 'react';
 import { fetchContacts } from 'redux/contacts/contactsOperations';
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
+import Stack from '@mui/material/Stack';
+
 
 export const Contacts = () => {
   const dispatch = useDispatch();
@@ -46,8 +48,10 @@ export const Contacts = () => {
             </Typography>
           ) : (
             <>
-              <Filter />
-              <ContactList />
+              <Stack spacing={2}>
+                <Filter />
+                <ContactList />
+              </Stack>
             </>
           )}
         </>
