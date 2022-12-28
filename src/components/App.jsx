@@ -11,6 +11,9 @@ import { useEffect } from 'react';
 import authOperations from 'redux/auth/authOperations';
 import { PrivateRoute } from 'PrivateRoute';
 import { RestrictedRoute } from 'RestrictedRoute';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 export const App = () => {
   const dispatch = useDispatch();
@@ -24,7 +27,7 @@ export const App = () => {
       <Box sx={{ width: '100%' }}>
         <Routes>
           <Route path="/" element={<Navigation />}>
-            <Route index element={<Navigate to="/register" />} />
+            <Route index element={<Navigate to="/login" />} />
             <Route
               path="/register"
               element={
@@ -50,6 +53,7 @@ export const App = () => {
         </Routes>
       </Box>
       <GlobalStyle />
+      <ToastContainer />
     </>
   );
 };

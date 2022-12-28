@@ -5,11 +5,12 @@ import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
 import Container from '@mui/material/Container';
+import { toast } from 'react-toastify';
 
 export function ContactForm() {
   const array = useSelector(getContactsArray);
 
-  const handleInputName = e => {    
+  const handleInputName = e => {
     return e.currentTarget.value;
   };
 
@@ -31,8 +32,9 @@ export function ContactForm() {
     );
 
     isDublicate
-      ? alert(`${name} is already in contacts`)
+      ? toast.warn(`${name} is already in contacts!`)
       : dispatch(addContact(contact));
+    // toast.success('New contact added!')
   };
 
   return (
@@ -63,9 +65,9 @@ export function ContactForm() {
             variant="outlined"
             size="small"
           />
-            <Button variant="contained" type="submit">
-              Add
-            </Button>
+          <Button variant="contained" type="submit">
+            Add
+          </Button>
         </Stack>
       </form>
     </Container>

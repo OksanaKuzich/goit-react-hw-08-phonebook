@@ -6,6 +6,7 @@ import TableCell from '@mui/material/TableCell';
 import Avatar from 'react-avatar';
 import ClearIcon from '@mui/icons-material/Clear';
 import IconButton from '@mui/material/IconButton';
+import { toast } from 'react-toastify';
 
 export const ContactListItem = ({ id, name, number }) => {
   const dispatch = useDispatch();
@@ -21,7 +22,13 @@ export const ContactListItem = ({ id, name, number }) => {
       <TableCell align="center">{name}</TableCell>
       <TableCell align="center">{number}</TableCell>
       <TableCell align="center" dataid={id}>
-        <IconButton color="error" onClick={() => dispatch(deleteContact(id))}>
+        <IconButton
+          color="error"
+          onClick={() => {
+            toast.info('Your contact has been deleted!');
+            dispatch(deleteContact(id));
+          }}
+        >
           <ClearIcon />
         </IconButton>
       </TableCell>
