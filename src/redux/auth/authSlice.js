@@ -18,10 +18,12 @@ const authSlice = createSlice({
       state.token = action.payload.token;
       state.isLoggedIn = true;
       state.error = null;
+      state.isLoading = false;
     },
     [authOperations.register.rejected]: (state, action) => {
       state.isLoggedIn = false;
       state.error = action.payload;
+      state.isLoading = false;
     },
     [authOperations.register.pending]: (state, action) => {
       state.isLoading = true;
@@ -31,10 +33,12 @@ const authSlice = createSlice({
       state.token = action.payload.token;
       state.isLoggedIn = true;
       state.error = null;
+      state.isLoading = false;
     },
     [authOperations.logIn.rejected]: (state, action) => {
       state.isLoggedIn = false;
       state.error = action.payload;
+      state.isLoading = false;
     },
     [authOperations.logIn.pending]: (state, action) => {
       state.isLoading = true;
@@ -44,10 +48,12 @@ const authSlice = createSlice({
       state.token = null;
       state.isLoggedIn = false;
       state.error = null;
+      state.isLoading = false;
     },
     [authOperations.logOut.rejected]: (state, action) => {
       state.isLoggedIn = false;
       state.error = action.payload;
+      state.isLoading = false;
     },
     [authOperations.logOut.pending]: (state, action) => {
       state.isLoading = true;
@@ -56,10 +62,12 @@ const authSlice = createSlice({
       state.user = action.payload;
       state.isLoggedIn = true;
       state.error = null;
+      state.isLoading = false;
     },
     [authOperations.fetchCurrentUser.rejected]: (state, action) => {
       state.isLoggedIn = false;
       state.error = action.payload;
+      state.isLoading = false;
     },
     [authOperations.fetchCurrentUser.pending]: (state, action) => {
       state.isLoading = true;

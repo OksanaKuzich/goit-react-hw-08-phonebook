@@ -8,10 +8,11 @@ import * as React from 'react';
 import { Link } from 'react-router-dom';
 import LogoutIcon from '@mui/icons-material/Logout';
 import Typography from '@mui/material/Typography';
+import CircularProgress from '@mui/material/CircularProgress';
 
 export const UserMenu = () => {
   const dispatch = useDispatch();
-
+  const loading = useSelector(authSelectors.getIsLoadingLogin);
   const name = useSelector(authSelectors.getUserName);
   const [value, setValue] = React.useState('contacts');
 
@@ -33,7 +34,13 @@ export const UserMenu = () => {
           <Tab
             onClick={() => dispatch(authOperations.logOut())}
             value="logout"
-            icon={<LogoutIcon fontSize="small" />}
+            icon={
+              !loading ? (
+                <LogoutIcon fontSize="small" />
+              ) : (
+                <CircularProgress size={24} />
+              )
+            }
             aria-label="logout"
           />
         </Tabs>

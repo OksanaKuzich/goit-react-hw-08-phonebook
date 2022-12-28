@@ -1,12 +1,15 @@
 import { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import authOperations from 'redux/auth/authOperations';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
 import Container from '@mui/material/Container';
+import authSelectors from 'redux/auth/authSelectors';
+import CircularProgress from '@mui/material/CircularProgress';
 
 export const LoginForm = () => {
+  const loading = useSelector(authSelectors.getIsLoadingLogin);
   const dispatch = useDispatch();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -54,7 +57,7 @@ export const LoginForm = () => {
             size="small"
           />
           <Button variant="contained" type="submit">
-            Login
+            {!loading ? 'Login' : <CircularProgress size={28} color="info" />}
           </Button>
         </Stack>
       </form>

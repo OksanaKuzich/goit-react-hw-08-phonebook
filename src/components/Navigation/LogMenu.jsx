@@ -8,7 +8,15 @@ import { useLocation } from 'react-router-dom';
 export const LogMenu = () => {
   const location = useLocation();
   const pathLocation = location.pathname;
-  const [value, setValue] = React.useState(pathLocation);
+  const [value, setValue] = React.useState('/login');
+
+  React.useEffect(() => {
+    if (pathLocation === '/register') {
+      setValue('/register');
+    } else if (pathLocation === '/login') {
+      setValue('/login');
+    }
+  }, [pathLocation]);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
