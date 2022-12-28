@@ -3,13 +3,17 @@ import * as React from 'react';
 import Box from '@mui/material/Box';
 import Tab from '@mui/material/Tab';
 import Tabs from '@mui/material/Tabs';
+import { useLocation } from 'react-router-dom';
 
 export const LogMenu = () => {
-  const [value, setValue] = React.useState('login');
+  const location = useLocation();
+  const pathLocation = location.pathname;
+  const [value, setValue] = React.useState(pathLocation);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
+
   return (
     <nav>
       <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
@@ -18,9 +22,9 @@ export const LogMenu = () => {
             component={Link}
             to="/register"
             label="Register"
-            value="register"
+            value="/register"
           />
-          <Tab component={Link} to="/login" label="Log In" value="login" />
+          <Tab component={Link} to="/login" label="Log In" value="/login" />
         </Tabs>
       </Box>
     </nav>
