@@ -1,6 +1,7 @@
 import { Route, Routes, Navigate } from 'react-router-dom';
 import { Contacts } from 'pages/Contacts';
 import { Register } from 'pages/Register';
+import { NotFound } from 'pages/NotFound';
 import { Login } from 'pages/Login';
 import { Navigation } from './Navigation/Navigation';
 import { GlobalStyle } from 'components/Utilit/GlobalStyle';
@@ -49,6 +50,7 @@ export const App = () => {
               }
             />
           </Route>
+          <Route path="*" element={<NotFound />}></Route>
         </Routes>
       </Box>
       <GlobalStyle />
