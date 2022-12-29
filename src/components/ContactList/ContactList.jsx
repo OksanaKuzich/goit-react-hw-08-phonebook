@@ -4,12 +4,14 @@ import {
   getContactsArray,
   getContactsFilter,
 } from 'redux/contacts/contactsSelectors';
-import Table from '@mui/material/Table';
-import TableBody from '@mui/material/TableBody';
-import TableCell from '@mui/material/TableCell';
-import TableHead from '@mui/material/TableHead';
-import TableRow from '@mui/material/TableRow';
-import Typography from '@mui/material/Typography';
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableRow,
+  Typography,
+} from '@mui/material';
 
 export const ContactList = () => {
   const array = useSelector(getContactsArray);

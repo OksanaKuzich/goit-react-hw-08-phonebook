@@ -1,20 +1,16 @@
-import authSelectors from 'redux/auth/authSelectors';
-import Box from '@mui/material/Box';
-import Tab from '@mui/material/Tab';
-import Tabs from '@mui/material/Tabs';
+import { getIsLoadingLogin, getUserName } from 'redux/auth/authSelectors';
+import { logOut } from 'redux/auth/authOperations';
 import { useDispatch, useSelector } from 'react-redux';
-import authOperations from 'redux/auth/authOperations';
-import * as React from 'react';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { Box, Tab, Tabs, Typography, CircularProgress } from '@mui/material';
 import LogoutIcon from '@mui/icons-material/Logout';
-import Typography from '@mui/material/Typography';
-import CircularProgress from '@mui/material/CircularProgress';
 
 export const UserMenu = () => {
   const dispatch = useDispatch();
-  const loading = useSelector(authSelectors.getIsLoadingLogin);
-  const name = useSelector(authSelectors.getUserName);
-  const [value, setValue] = React.useState('contacts');
+  const loading = useSelector(getIsLoadingLogin);
+  const name = useSelector(getUserName);
+  const [value, setValue] = useState('contacts');
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
@@ -32,7 +28,7 @@ export const UserMenu = () => {
             value="contacts"
           />
           <Tab
-            onClick={() => dispatch(authOperations.logOut())}
+            onClick={() => dispatch(logOut())}
             value="logout"
             icon={
               !loading ? (

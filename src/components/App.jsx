@@ -1,5 +1,4 @@
-import { Route, Routes } from 'react-router-dom';
-import { Navigate } from 'react-router-dom';
+import { Route, Routes, Navigate } from 'react-router-dom';
 import { Contacts } from 'pages/Contacts';
 import { Register } from 'pages/Register';
 import { Login } from 'pages/Login';
@@ -8,7 +7,7 @@ import { GlobalStyle } from 'components/Utilit/GlobalStyle';
 import Box from '@mui/material/Box';
 import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
-import authOperations from 'redux/auth/authOperations';
+import { fetchCurrentUser } from 'redux/auth/authOperations';
 import { PrivateRoute } from 'PrivateRoute';
 import { RestrictedRoute } from 'RestrictedRoute';
 import { ToastContainer } from 'react-toastify';
@@ -19,7 +18,7 @@ export const App = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(authOperations.fetchCurrentUser());
+    dispatch(fetchCurrentUser());
   }, [dispatch]);
 
   return (

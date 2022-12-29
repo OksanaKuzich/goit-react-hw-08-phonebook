@@ -1,12 +1,11 @@
 import { UserMenu } from 'components/Navigation/UserMenu';
 import { Outlet } from 'react-router-dom';
 import { LogMenu } from './LogMenu';
-import authSelectors from 'redux/auth/authSelectors';
-import * as React from 'react';
+import { getIsLoggedIn } from 'redux/auth/authSelectors';
 import { useSelector } from 'react-redux';
 
 export const Navigation = () => {
-  const isLoggedIn = useSelector(authSelectors.getIsLoggedIn);
+  const isLoggedIn = useSelector(getIsLoggedIn);
 
   return (
     <>

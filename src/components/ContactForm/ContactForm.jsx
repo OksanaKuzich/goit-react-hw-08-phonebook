@@ -1,13 +1,10 @@
 import { getContactsArray } from 'redux/contacts/contactsSelectors';
-import { useDispatch, useSelector } from 'react-redux';
 import { addContact } from 'redux/contacts/contactsOperations';
-import TextField from '@mui/material/TextField';
-import Button from '@mui/material/Button';
-import Stack from '@mui/material/Stack';
-import Container from '@mui/material/Container';
+import { useDispatch, useSelector } from 'react-redux';
+import { TextField, Button, Stack, Container } from '@mui/material';
 import { toast } from 'react-toastify';
 
-export function ContactForm() {
+export const ContactForm = () => {
   const array = useSelector(getContactsArray);
 
   const handleInputName = e => {

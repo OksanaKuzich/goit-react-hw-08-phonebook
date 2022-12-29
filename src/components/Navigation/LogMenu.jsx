@@ -1,16 +1,13 @@
-import { Link } from 'react-router-dom';
-import * as React from 'react';
-import Box from '@mui/material/Box';
-import Tab from '@mui/material/Tab';
-import Tabs from '@mui/material/Tabs';
-import { useLocation } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
+import { Box, Tab, Tabs } from '@mui/material';
+import { useState, useEffect } from 'react';
 
 export const LogMenu = () => {
   const location = useLocation();
   const pathLocation = location.pathname;
-  const [value, setValue] = React.useState('/login');
+  const [value, setValue] = useState('/login');
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (pathLocation === '/register') {
       setValue('/register');
     } else if (pathLocation === '/login') {

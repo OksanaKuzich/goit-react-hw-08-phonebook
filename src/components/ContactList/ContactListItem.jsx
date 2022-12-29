@@ -1,11 +1,9 @@
 import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
 import { deleteContact } from 'redux/contacts/contactsOperations';
-import TableRow from '@mui/material/TableRow';
-import TableCell from '@mui/material/TableCell';
-import Avatar from 'react-avatar';
+import { TableRow, TableCell, IconButton } from '@mui/material';
 import ClearIcon from '@mui/icons-material/Clear';
-import IconButton from '@mui/material/IconButton';
+import Avatar from 'react-avatar';
 import { toast } from 'react-toastify';
 
 export const ContactListItem = ({ id, name, number }) => {

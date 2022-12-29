@@ -1,16 +1,18 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import authOperations from 'redux/auth/authOperations';
-import TextField from '@mui/material/TextField';
-import Button from '@mui/material/Button';
-import Stack from '@mui/material/Stack';
-import Container from '@mui/material/Container';
-import authSelectors from 'redux/auth/authSelectors';
-import CircularProgress from '@mui/material/CircularProgress';
+import { register } from 'redux/auth/authOperations';
+import { getIsLoadingLogin } from 'redux/auth/authSelectors';
+import {
+  TextField,
+  Button,
+  Stack,
+  Container,
+  CircularProgress,
+} from '@mui/material';
 
 export const RegisterForm = () => {
   const dispatch = useDispatch();
-  const loading = useSelector(authSelectors.getIsLoadingLogin);
+  const loading = useSelector(getIsLoadingLogin);
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -30,7 +32,7 @@ export const RegisterForm = () => {
 
   const handleSubmit = e => {
     e.preventDefault();
-    dispatch(authOperations.register({ name, email, password }));
+    dispatch(register({ name, email, password }));
     setName('');
     setEmail('');
     setPassword('');
