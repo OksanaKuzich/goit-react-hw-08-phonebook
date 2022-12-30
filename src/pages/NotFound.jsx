@@ -4,6 +4,14 @@ import ExitToAppIcon from '@mui/icons-material/ExitToApp';
 import { Link } from 'react-router-dom';
 
 export const NotFound = () => {
+  const GoBackFunk = () => {
+    setTimeout(() => {
+      alert('I love async JS!');
+    }, 2000);
+  };
+
+  GoBackFunk();
+
   return (
     <Box
       sx={{
