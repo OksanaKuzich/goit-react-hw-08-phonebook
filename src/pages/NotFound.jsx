@@ -1,16 +1,17 @@
 import notFound from '../image/404.gif';
 import { Box, Button, Stack } from '@mui/material';
 import ExitToAppIcon from '@mui/icons-material/ExitToApp';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { useEffect } from 'react';
 
 export const NotFound = () => {
-  const GoBackFunk = () => {
-    setTimeout(() => {
-      alert('I love async JS!');
-    }, 2000);
-  };
+  const navigate = useNavigate();
 
-  GoBackFunk();
+  useEffect(() => {
+    setTimeout(() => {
+      navigate('/login', { replace: true });
+    }, 2000);
+  }, [navigate]);
 
   return (
     <Box
@@ -18,7 +19,6 @@ export const NotFound = () => {
         mt: 10,
       }}
     >
-      {' '}
       <Stack spacing={2}>
         <img src={notFound} alt="Page not found!" loading="lazy" />
         <Box
