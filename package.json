@@ -1,8 +1,8 @@
 {
-  "name": "goit-react-hw-08-phonebook",
+  "name": "goit-react-hw-08-phonebook-ts",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://oksanakuzich.github.io/goit-react-hw-08-phonebook/",
+  "homepage": "https://oksanakuzich.github.io/goit-react-hw-08-phonebook-ts/",
   "dependencies": {
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.5",
