@@ -27,12 +27,10 @@ export const ContactForm = () => {
     const isDublicate = array.some(
       contact => contact.name.toLowerCase() === name.toLowerCase()
     );
-
     if (isDublicate) {
       toast.warn(`${name} is already in contacts!`);
       return;
     }
-
     dispatch(addContact(contact));
     toast.success('New contact added!');
   };
